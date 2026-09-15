@@ -1,23 +1,37 @@
 .card {
     padding: 1rem;
+    cursor: pointer;
 
-    .content>*+* {
-        margin-top: .25rlh;
+    .content > * + * {
+        margin-top: 0.5rem;
+    }
+
+    &:not(:has(img)):has(h3) h3 {
+    font-size: 1.6rem;
+    transition: color 1s ease;
+
+    &:hover{
+        color: yellow;
     }
 }
 
+&:not(:has(h3, img)):has(p) p{
+    font-size: 1.25rem;
+    line-height: 1.4
+}
 
+    &:has(img){
+    padding: 0;
+}
 
+&:has(img) .content {
+    padding: 1rem;
+}
 
-
-
-
-
-
-
-
-
-
+&:has(img, h3) h3:hover{
+color: purple;
+}
+}
 
 
 @layer reset, cards;
@@ -36,7 +50,7 @@
     .card {
         background: #fff;
         border-radius: 6px;
-        box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 12px 28px 0 #00000033, 0 2px 4px 0 hsla(0, 0%, 0%, 0.1), inset 0 0 0 1px #ffffff80;
         overflow: clip;
     }
 
