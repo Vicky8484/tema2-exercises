@@ -1,4 +1,27 @@
-article {
-    max-width: 65ch;
-    margin-inline: auto;
+main {
+  display: grid;
+  grid-template-columns:
+    [a-start] 2fr 
+    [b-start] 1fr 
+    [c-start] minmax(0, 900px) [c-end]
+    1fr [b-end]
+    2fr [a-end];
+    
+  article {
+    grid-column: a;
+    display: grid;
+    grid-template-columns: subgrid;
+
+    > * {
+      grid-column: c;
+    }
+  }
+
+  blockquote {
+    grid-column: b;
+  }
+
+  img {
+    grid-column: a;
+  }
 }
