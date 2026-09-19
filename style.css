@@ -1,6 +1,9 @@
 html {
   color-scheme: light;
 
+  /* Gør hele dokumentets bredde tilgængelig for en container query. */
+  container: document / inline-size;
+
   &[data-theme="dark"] {
     color-scheme: dark;
   }
@@ -23,9 +26,6 @@ article {
   display: grid;
   gap: 1.5rlh;
 
-  @media (width > 768px) {
-    grid-template-columns: 300px 1fr;
-  }
 
   p {
     font-size: 0.9rem;
@@ -34,6 +34,9 @@ article {
 }
 
 header {
+  /* Headerens indhold kan reagere på headerens egen bredde. */
+  container: header / inline-size;
+
   img {
     aspect-ratio: 1;
     object-fit: cover;
@@ -51,6 +54,51 @@ header {
   display: grid;
   gap: 0.75rlh;
 }
+
+article {
+  /* Article kan reagere på sin egen bredde, ikke kun viewportens bredde. */
+  container: article / inline-size;
+}
+
+/* Ved smalle article-containere placeres albumdetaljerne i to kolonner. */
+@container article (width < 550px) {
+  header div {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+
+    .content{
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@container article (width < 430px) {
+  header div {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    .content{
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/* Fra 550px får headeren plads til coveret ved siden af teksten. */
+@container header (width >= 550px) {
+  header > div {
+    grid-template-columns: 250px 1fr;
+  }
+}
+
+/* På store dokumenter placeres article-indholdet i to hovedkolonner. */
+@container document (width > 768px) {
+  article {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
 
 .album-details {
   display: flex;
