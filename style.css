@@ -1,2 +1,43 @@
 /* Dine styles her */
-article {}
+article {
+  background-color: blanchedalmond;
+  outline: #f9eddb 10px solid;
+  padding: 1rem;
+  box-shadow: 4px 5px 10px black;
+  
+  &:hover{
+    animation: bgc 5s ease infinite;
+    cursor: pointer;
+  }
+
+  > * + * {
+    margin-top: var(--flow-space, 0.5rlh);
+  }
+
+  h2{
+    --flow-space: 2rlh;
+  }
+
+  h3{
+    --flow-space: 1rlh;
+
+    > *{
+      --flow-space: .25rlh;
+    }
+  }
+}
+
+@keyframes bgc{
+  20%{
+    background-color: #e5f75c;
+    outline: #f5f2a9 10px solid;
+  }
+  60%{
+    background-color: #5c83f7;
+    outline: #b9cdf7 10px solid;
+  }
+  100%{
+    background-color: #f75ca4;
+    outline: #f6c5d6 10px solid;
+  }
+}
