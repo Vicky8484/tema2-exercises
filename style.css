@@ -21,7 +21,7 @@ article {
   h3{
     --flow-space: 1rlh;
 
-    > *{
+    + *{
       --flow-space: .25rlh;
     }
   }
