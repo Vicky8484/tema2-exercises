@@ -1,4 +1,5 @@
 ---
+// @ts-nocheck
 const { cardContent } = Astro.props;
 ---
 
@@ -16,5 +17,41 @@ const { cardContent } = Astro.props;
 <style>
   ul {
     list-style: none;
+    padding-inline: 1rem;
+    scroll-padding-inline: 1rem;
+    overflow-inline: auto;
+    display: flex;
+    scroll-snap-type: inline mandatory;
+    gap: 1rem;
+    padding-block: 1rem;
+
+    li {
+      flex: 0 0 500px;
+      transition:
+        background 1s ease,
+        color 2s ease;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+
+      background: #5000ca;
+      color: #fff;
+      padding: 1.5rem 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+
+      p,
+      h3 {
+        color: #fff;
+      }
+
+      &:hover {
+        background: orange;
+
+        p,
+        h3 {
+          color: #a95325;
+        }
+      }
+    }
   }
 </style>
