@@ -4,7 +4,7 @@
   --color-surface: #ffffff;
   --color-page: #f2f4f8;
   --color-indigo: #5546d8;
-  --color-coral: #c94f35;
+  --color-coral: #c9356e;
   --color-on-accent: #ffffff;
 
   --space-xs: 0.5rem;
@@ -65,12 +65,12 @@ main {
   }
 
   /* TODO: Afled disse tokens fra --color-accent med Relative Color Syntax. */
-  --color-accent-hover: ;
-  --color-accent-active: ;
-  --color-accent-muted: ;
-  --color-accent-border: ;
-  --color-accent-focus: ;
-  --color-accent-on-muted: ;
+  --color-accent-hover: oklch(from var(--color-accent) calc(l + .09) c h);
+  --color-accent-active: oklch(from var(--color-accent) calc(l + .2) c h);
+  --color-accent-muted: oklch(from var(--color-accent) calc(l + .9) calc(c + .09) h);
+  --color-accent-border: oklch(from var(--color-accent) calc(l - .2) c h);
+  --color-accent-focus: oklch(from var(--color-accent) calc(l - .9) c h);
+  --color-accent-on-muted: oklch(from var(--color-accent) calc(l - .03) c h);
 
   padding: var(--space-xl);
   border: 2px solid var(--color-accent-border);
